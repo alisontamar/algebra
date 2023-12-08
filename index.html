@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>sistemecuations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="contenidoInicio">
+        <h1 class="titulos">Metodo determinantes</h1>
+        <img height="55px" src="https://www.aprendematematicas.org.mx/wp-content/ql-cache/quicklatex.com-3b62929a21432fd6d4865f0c82ebfa51_l3.png">
+        <ul>
+            <li class="lost">Paso uno: calcular la determinante principal</li>
+            <img height="55px" src="https://www.aprendematematicas.org.mx/wp-content/ql-cache/quicklatex.com-7d2a1af74f8db1b7728e0205e823754a_l3.png">
+            <div>Ya teniendo nuestro paso un completado, pasamos al paso dos</div>
+            <br> 
+            <li class="lost">Paso dos: Calcular la determinante de x</li>
+            <img height="55px" src="https://www.aprendematematicas.org.mx/wp-content/ql-cache/quicklatex.com-c28403cba9a9aa367346a6b7acb7df7d_l3.png">
+            <br>
+            <br>
+            <li class="lost">Paso tres: Calcular la determiante de y</li>
+            <img height="55px" src="https://www.aprendematematicas.org.mx/wp-content/ql-cache/quicklatex.com-86c71b29739a0a5c977af7e069fb5825_l3.png">
+            <br>
+        </ul>
+        </article>
+        <article>     
+        <h2 class="titulos">¡Genial! Teniendo todos los anteriores pasos completados, procedemos a dividir cada determinante(x,y)entre la determinane principal</h2>
+        <img height="55px" src="https://www.aprendematematicas.org.mx/wp-content/ql-cache/quicklatex.com-846ee3fd39218552fddd128cb3b4d4a1_l3.png">
+        <br>
+        <div>Te traemos un ejemplo aqui:  </div>
+        <br>
+        <img height="80px" src="https://www.aprendematematicas.org.mx/wp-content/ql-cache/quicklatex.com-8e68a16242d662d177b7790c05760365_l3.png">
+        <br>
+    </article>
+    <h2 class="titulos">Ahora ¡Comencemos!</h2>
+
+        <button onclick="mostrarFormulario()">Comenzar</button>
+    </div>
+
+    <div id="contenidoFormulario">
+        <h1 class="titulos">Resolver Sistema de Ecuaciones</h1>
+        <img height="200px" src="https://www.aprendematematicas.org.mx/wp-content/ql-cache/quicklatex.com-3b62929a21432fd6d4865f0c82ebfa51_l3.svg">
+        <form id="sistemaEcuacionesForm">
+            <form id="sistemaEcuacionesForm">
+                <label for="a1">Coeficiente a</sub>:</label>
+                <input type="number" id="a1" required>
+                <label for="b1">Coeficiente b</sub>:</label>
+                <input type="number" id="b1" required>
+                <label for="c1">Término independiente m</sub>:</label>
+                <input type="number" id="c1" required>
+        
+                <br>
+                <br>
+        
+                <label for="a2">Coeficiente c</sub>:</label>
+                <input type="number" id="a2" required>
+                <label for="b2">Coeficiente d</sub>:</label>
+                <input type="number" id="b2" required>
+                <label for="c2">Término independiente n</sub>:</label>
+                <input type="number" id="c2" required>
+        
+                <br>
+                <br>
+                <button type="button" onclick="resolverSistema()">Resolver</button>
+            </form>
+            <div id="resultado"></div>
+
+
+                    <script>
+                        function mostrarFormulario() {
+                            document.getElementById('contenidoInicio').style.display = 'none';
+                            document.getElementById('contenidoFormulario').style.display = 'block';
+                        }
+            
+                        function resolverSistema() {
+                            const a1 = parseFloat(document.getElementById('a1').value);
+                            const b1 = parseFloat(document.getElementById('b1').value);
+                            const c1 = parseFloat(document.getElementById('c1').value);
+                            const a2 = parseFloat(document.getElementById('a2').value);
+                            const b2 = parseFloat(document.getElementById('b2').value);
+                            const c2 = parseFloat(document.getElementById('c2').value);
+            
+                            const determinantePrincipal = a1 * b2 - a2 * b1;
+                            const determinanteX = c1 * b2 - c2 * b1;
+                            const determinanteY = a1 * c2 - a2 * c1;
+            
+                            const x = determinanteX / determinantePrincipal;
+                            const y = determinanteY / determinantePrincipal;
+            
+                            const xRedondeado = Math.round(x * 100) / 100;
+                            const yRedondeado = Math.round(y * 100) / 100;
+            
+                            const resultado = document.getElementById('resultado');
+            
+                            if (isNaN(x) || isNaN(y) || !isFinite(x) || !isFinite(y)) {
+                                resultado.innerHTML = 'No hay solucion';
+                            } else {
+                                resultado.innerHTML = `Resultado: x = ${xRedondeado}, y = ${yRedondeado}`;
+                            }
+            
+                            resultado.style.fontSize = '45px';
+                            resultado.style.margin = '10px';
+                            resultado.style.backgroundColor = '#f5e6ff';
+                        }
+                    </script>
+                    
+</body>
+</html>
+
+

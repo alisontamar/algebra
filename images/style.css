@@ -1,0 +1,48 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#contenidoInicio {
+    display: block;
+}
+
+#contenidoFormulario {
+    display: none;
+}
+
+#resultado {
+    font-weight: bold;
+}
+body{
+    margin: 0;
+    background-image: url(images/giftimage.gif);
+    opacity: 3;
+    background-position: center;
+    background-size: cover;
+    
+}
+.titulos{
+    text-decoration:underline
+}
+.lost{
+    font-style:inherit;
+    font-size: 18px;
+}
+.contenidoFormulario{
+    text-align: initial;
+}
+.result{
+    height: 300px;
+}
+.imagen{
+    border: 30px coral;
+}
+button{
+    background-color: rgb(149, 97, 162);
+    padding: 15px 40px;
+    font-size: 22px;
+    display:inline-block;
+    cursor:pointer;
+
+}
